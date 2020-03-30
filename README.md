@@ -286,12 +286,52 @@ ___
 
 <a id="types"></a>
 
-### ❌ Types
+### ✔️ Types
+Type void and resource are not represented:
+```php
+/** @var null */
+$foo = null;
+
+/** @var int */
+$foo = 33;
+
+/**@var float */
+$foo = 33 / 33;
+
+/**@var bool */
+$foo = true;
+
+/**@var string */
+$foo = "Hello";
+
+/** @var array */
+$foo = [];
+
+/** @var stdClass */
+$foo = new stdClass();
+```
+Var identifier can be dynamic:
+```php
+$foo = "bar";
+$$foo = "baz";
+echo $bar; //baz
+```
 ___
 
 <a id="response"></a>
 
-### ❌ Response
+### ✔️ Response
+Send header and body:
+```php
+//Protocol and status
+header("HTTP/1.1 404 TOTO");
+//Add header
+header("Content-Type: text/html");
+//Add Body content
+echo "Hello World";
+//Import a file and add content to body
+include "./foo.html";
+```
 ___
 
 <a id="oop"></a>
@@ -335,7 +375,7 @@ ___
 
 ### ✔️ Routing
 
-Requests are handle by one file: index.php.
+Requests are handle by one file: "index.php".
 An URL is associated to a method of a controller.
 
 *index.php*
@@ -374,7 +414,21 @@ ___
 
 <a id="template"></a>
 
-### ❌ Template
+### ✔️ Template
+
+👨🏻‍💻 Manipulation
+
+For "/ login" and "/ signup"
+You must display a login and account creation page.
+
+These pages or parts of pages, reside in the "templates" folder, the controller must include them.
+ 
+These files must have the extension ".html.php".
+
+For HTML creation, copy and paste bootstrap documentation
+ 
+👨🏻‍💻 Conclusion
+ 
 ___
 
 <a id="globals"></a>
