@@ -405,7 +405,7 @@ With the **if** and the **try catch**:
 
 
 
-* Propose a page "site under maintenance" if a levable has been raised
+* Propose a page "site under maintenance" if a Throable has been throwed
 
 ___
 
@@ -446,7 +446,7 @@ foreach ($routes as $key => $value) {
 }
 
 ```
-We need to enforce routing for dynamic URL
+We need to enforce routing for dynamic URL.
 
 ___
 
@@ -463,26 +463,27 @@ These pages or parts of pages, reside in the "templates" folder, the controller 
  
 These files must have the extension ".html.php".
 
-For HTML creation, copy and paste bootstrap documentation
+For HTML creation, copy and paste bootstrap documentation.
  
 ⚠️Problems:
 
-* **Include path**: tous les chemins relatifs sont relatifs par rapport au point d'excecution (index.php), problème de maintenance des chemins
+* **Include path**: all relative paths are relative to the execution point (index.php), path maintenance problem
 
-* **reutilisation des éléments communs**: on repète html, head, body
+* **reutilisation des éléments communs**: we repeat html, head, body
 
 
 **👨🏻‍💻 Conclusion**
  
 ✔️ Solutions:
 
-* **Include path**: pouvoir commencer le chemin depuis le repertoir en cours.
+* **Include path**: be able to start the path from the current directory.
 ```php
 include __DIR__ . "/../../templates/foo.html.php";
 
 ```
 
-* **reutilisation des éléments communs**: créer un fichier de header et de footer à inclure sur chaque page
+* **reusability**: create a header and footer file to include on each page.
+
 ```bash
 templates
 |- authentification
