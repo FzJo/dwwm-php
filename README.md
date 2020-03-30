@@ -397,16 +397,6 @@ try {
 ```
 ![diagram](uml/class/exception.jpg)
 
-**👨🏻‍💻 Manipulation**
-
-With the **if** and the **try catch**:
-
-* Propose a 404 page if no route matches
-
-
-
-* Propose a page "site under maintenance" if a Throable has been throwed
-
 ___
 
 <a id="routing"></a>
@@ -446,6 +436,16 @@ foreach ($routes as $key => $value) {
 }
 
 ```
+**👨🏻‍💻 Manipulation**
+
+With the **if** and the **try catch**:
+
+* Propose a 404 page if no route matches
+
+* Propose a page "site under maintenance" if a Throwable has been throwed
+
+⚠️Problems:
+
 We need to enforce routing for dynamic URL.
 
 ___
@@ -470,9 +470,6 @@ For HTML creation, copy and paste bootstrap documentation.
 * **Include path**: all relative paths are relative to the execution point (index.php), path maintenance problem
 
 * **reutilisation des éléments communs**: we repeat html, head, body
-
-
-**👨🏻‍💻 Conclusion**
  
 ✔️ Solutions:
 
