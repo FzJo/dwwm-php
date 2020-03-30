@@ -11,7 +11,7 @@ class AuthentificationController
             
     public function login()
     {
-        echo "login";
+        include "../templates/authentification/login.html.php";
     }  
     
     public function logout()

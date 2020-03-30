@@ -11,7 +11,7 @@ class UserController
             
     public function createUser()
     {
-        echo "createUser";
+        include __DIR__ . "/../../templates/user/signup.html.php";
     }
 
     public function updateUser()
