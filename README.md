@@ -367,7 +367,45 @@ ___
 
 <a id="structures"></a>
 
-### ❌ Structures
+### ✔️ Structures
+
+* if else
+
+```php
+if () {
+} elseif () {
+} else {
+}
+```
+
+* foreach
+
+```php
+foreach ($myArray as $key => $value) {
+}
+```
+* try catch
+
+```php
+try {
+    echo "Always executed";
+    $dbh = new PDO;
+    echo "Never executed";
+} catch (Throwable $e) {
+    echo "Catched";
+}
+```
+![diagram](uml/class/exception.jpg)
+
+**👨🏻‍💻 Manipulation**
+
+With the **if** and the **try catch**:
+
+* Propose a 404 page if no route matches
+
+
+
+* Propose a page "site under maintenance" if a levable has been raised
 
 ___
 
@@ -416,7 +454,7 @@ ___
 
 ### ✔️ Template
 
-👨🏻‍💻 Manipulation
+**👨🏻‍💻 Manipulation**
 
 For "/ login" and "/ signup"
 You must display a login and account creation page.
@@ -427,8 +465,32 @@ These files must have the extension ".html.php".
 
 For HTML creation, copy and paste bootstrap documentation
  
-👨🏻‍💻 Conclusion
+⚠️Problems:
+
+* **Include path**: tous les chemins relatifs sont relatifs par rapport au point d'excecution (index.php), problème de maintenance des chemins
+
+* **reutilisation des éléments communs**: on repète html, head, body
+
+
+**👨🏻‍💻 Conclusion**
  
+✔️ Solutions:
+
+* **Include path**: pouvoir commencer le chemin depuis le repertoir en cours.
+```php
+include __DIR__ . "/../../templates/foo.html.php";
+
+```
+
+* **reutilisation des éléments communs**: créer un fichier de header et de footer à inclure sur chaque page
+```bash
+templates
+|- authentification
+|_| - template.html.php
+|- _header.html.php
+|- _footer.html.php
+```
+
 ___
 
 <a id="globals"></a>
