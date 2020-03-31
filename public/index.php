@@ -4,10 +4,14 @@ require '../vendor/autoload.php';
 
 $url = "/";
 
-if (array_key_exists("REDIRECT_URL", $_SERVER)) {
-    $url = $_SERVER["REDIRECT_URL"];
-} else if (array_key_exists("PATH_INFO", $_SERVER)) {
-    $url = $_SERVER["PATH_INFO"];
+$redirectUrl = filter_input(INPUT_SERVER, "REDIRECT_URL");
+
+$pathInfo = filter_input(INPUT_SERVER, "PATH_INFO");
+
+if ($redirectUrl) {
+    $url = $redirectUrl;
+} else if ($pathInfo) {
+    $url = $pathInfo;
 }
 
 $routes = [
