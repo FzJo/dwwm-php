@@ -102,7 +102,7 @@ composer dump-autoload
 ### ☑️ Migration
 
 Execute  script:
-* [serie-bank.sql](serie-bank.sql)
+* [serie_-_bank.sql](serie_bank.sql)
 
 ### ☑️ Skeleton
 
@@ -159,6 +159,10 @@ ___
 
 ![diagram](uml/class/controller.png)
 
+*Form*
+
+![diagram](uml/class/form.jpg)
+
 ### ✔️ Sequence
 
 *Create user*
@@ -207,6 +211,14 @@ ___
 
 ```bash
 composer dump-autoload
+```
+
+* Install npm dependencies
+
+```bash
+cd public
+npm install
+cd ..
 ```
 
 * Run server in public
@@ -286,7 +298,7 @@ ___
 
 <a id="types"></a>
 
-### ✔️ Types
+## ✔️ Types
 Type void and resource are not represented:
 ```php
 /** @var null */
@@ -320,7 +332,7 @@ ___
 
 <a id="response"></a>
 
-### ✔️ Response
+## ✔️ Response
 Send header and body:
 ```php
 //Protocol and status
@@ -336,7 +348,7 @@ ___
 
 <a id="oop"></a>
 
-### ✔️ Object Oriented Programming
+## ✔️ Object Oriented Programming
 
 The procedure describe how to instanciate a class with PHP.
 
@@ -367,7 +379,7 @@ ___
 
 <a id="structures"></a>
 
-### ✔️ Structures
+## ✔️ Structures
 
 * if else
 
@@ -401,7 +413,7 @@ ___
 
 <a id="routing"></a>
 
-### ✔️ Routing
+## ✔️ Routing
 
 Requests are handle by one file: "index.php".
 An URL is associated to a method of a controller.
@@ -452,16 +464,16 @@ ___
 
 <a id="template"></a>
 
-### ✔️ Template
+## ✔️ Template
 
 **👨🏻‍💻 Manipulation**
 
-For "/ login" and "/ signup"
+For "*/ login*" and "*/ signup*"
 You must display a login and account creation page.
 
 These pages or parts of pages, reside in the "templates" folder, the controller must include them.
  
-These files must have the extension ".html.php".
+These files must have the extension "*.html.php*".
 
 For HTML creation, copy and paste bootstrap documentation.
  
@@ -479,7 +491,7 @@ include __DIR__ . "/../../templates/foo.html.php";
 
 ```
 
-* **reusability**: create a header and footer file to include on each page.
+* **reusability**: create header and footer file to include on each page.
 
 ```bash
 templates
@@ -489,16 +501,132 @@ templates
 |- _footer.html.php
 ```
 
+### Managing CSS and JS
+
+**👨🏻‍💻 Manipulation**
+
+ with a front-end  package manager of your choice:
+
+ * Initialize project *in the pblic folder*
+
+ ```bash
+ npm init
+ ```
+
+ * Install your dependencies
+
+ ```bash
+ npm install bootstrap --save
+ ```
+
+ * Add scripts and links to your projects
+
+```html
+<link 
+    rel="stylesheet" 
+    type="text/css" 
+    href="/node_modules/bootstrap/dist/css/bootstrap.css"
+/>
+```
+```html
+<script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+```
+
+> Remember that template are display by in the public folder
+
+⚠️Problems:
+
+If you do not use webpack, missing depencies throw errors
+
+✔️ Solutions:
+
+Install and declare dependencies
+
+**👨🏻‍💻 Manipulation**
+
+Use your CSS framework for set elements dimension and position
 ___
 
 <a id="globals"></a>
 
-### ❌ Globals
+## ✔️ Globals
+
+`$_GET` store parameters of the URL.
+
+>http://localhost:8000/signup?name=toto&email=tata
+
+`$_POST`
+store parameters of a request made in POST.
+
+⚠️ Prerequist for obtain POST parameters:
+
+* Request must send header "`Content-Type: application/x-www-form-urlencoded`"
+
+* Request must use `POST` method
+
+* Data must be attached to an **index**, correponding to the **name attribute value of an input**
+
+⚠️ Do not use superglobal directly because you can affect a value to them, use filter_input instead
+
+✔️ filter_input
+
+```php
+$value = filter_input(
+     INPUT_POST,
+    "foo"
+);
+```
+
+**👨🏻‍💻 Manipulation**
+
+* Use filter_input instead of superglobals
+
+**👨🏻‍💻 Manipulation**
+
+With form diagram:
+
+* Create forms
+* Fill entities with inputs value
+* Display filled entity in the template
 ___
 
 <a id="xss"></a>
 
-### ❌ XSS
+## ✔️ XSS
+
+> Security issue: Cross Site Scripting
+
+An user can inject script in your display.
+
+* Example for an input
+
+```html
+"><script>alert(0)</script>
+```
+
+```html
+" onblur="alert(this.value)" 
+```
+
+Never trust user, you have to escape input data before displaying.
+
+✔️ filter_var
+
+```php
+
+echo filter_var(
+    $myVar,
+    FILTER_SANITIZE_FULL_SPECIAL_CHARS
+);
+```
+Documentation on filters: https://www.php.net/manual/en/filter.filters.sanitize.php
+
+
+**👨🏻‍💻 Manipulation**
+
+* Use filter_var for display user input
+
 ___
 
 <a id="dataaccess"></a>
