@@ -6,20 +6,20 @@ Table of content:
 * 🚀 [Usage](#usage)
 * 🏟️ [Hosting](#hosting)
 * 👨🏻‍💻 [Development](#development)
-    * [Types](#types)
-    * [Response](#response)
-    * [Object](#oop)
-    * [Structures](#structures)
-    * [Routing](#routing)
-    * [Template](#template)
-    * [Globals](#globals)
-    * [XSS](#xss)
-    * [Data access](#dataaccess)
-    * [Session](#session)
-    * [CSRF](#csrf)
-    * [Side Effect](#sideeffect)
-    * [API](#api)
-    * [Cache](#cache)
+    * ☑️ [Types](#types)
+    * ☑️ [Response](#response)
+    * ☑️ [Object](#oop)
+    * ☑️ [Structures](#structures)
+    * ☑️ [Routing](#routing)
+    * ☑️ [Template](#template)
+    * ☑️ [Globals](#globals)
+    * ☑️ [XSS](#xss)
+    * ❌ [Data access](#dataaccess)
+    * ❌ [Session](#session)
+    * ❌ [CSRF](#csrf)
+    * ❌ [Side Effect](#sideeffect)
+    * ❌ [API](#api)
+    * ❌ [Cache](#cache)
 
 ___
 
@@ -29,15 +29,15 @@ ___
 
 ### ☑️ IDE
 
-Make your choice:
+**PHPStorm**
 
-* Eclipse: [https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-03/R/eclipse-inst-win64.exe](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-03/R/eclipse-inst-win64.exe)
-
-* PHPStorm: [https://www.jetbrains.com/fr-fr/phpstorm/download/#section=windows)
+https://www.jetbrains.com/fr-fr/phpstorm/download/#section=windows
 
 ### ☑️ PHP Distribution
 
-PHP 7.4.3 with XAMPP: [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
+**PHP 7.4.3 with *XAMPP*** 
+
+[https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
 
 * Run server
 
@@ -45,7 +45,7 @@ PHP 7.4.3 with XAMPP: [https://www.apachefriends.org/download.html](https://www.
 php -S localhost:8000
 ```
 
-* Run server in a specific dir
+* Run server in a dir
 
 ```bash
 php -S localhost:8000 -t public/
@@ -77,7 +77,7 @@ php composer.phar
 composer init 
 ```
 
-> File *composer.json*  describe the project
+**File *composer.json*  describe the project**
 
 * Install dependencies
 
@@ -97,16 +97,16 @@ composer require vendor/package-name
 composer dump-autoload
 ```
 
-> Packages are avalaible on: [https://packagist.org/](https://packagist.org/)
+**Packages are avalaible on: [https://packagist.org/](https://packagist.org/)**
 
 ### ☑️ Migration
 
-Execute  script:
+**Execute**
 * [serie_-_bank.sql](serie_bank.sql)
 
 ### ☑️ Skeleton
 
-#### Coding style:
+**Coding style**
 
 * PSR-1: [https://www.php-fig.org/psr/psr-1/](https://www.php-fig.org/psr/psr-1/)
 
@@ -350,7 +350,7 @@ ___
 
 ## ✔️ Object Oriented Programming
 
-The procedure describe how to instanciate a class with PHP.
+**The procedure describe how to instanciate a class with PHP**
 
 * Specify your **vendor** name for your **src** folder
 
@@ -415,8 +415,10 @@ ___
 
 ## ✔️ Routing
 
-Requests are handle by one file: "index.php".
-An URL is associated to a method of a controller.
+**Requests are handle by one file: "index.php".**
+
+
+An URL is associated to a controller method
 
 *index.php*
 ```php
@@ -469,6 +471,7 @@ ___
 **👨🏻‍💻 Manipulation**
 
 For "*/ login*" and "*/ signup*"
+
 You must display a login and account creation page.
 
 These pages or parts of pages, reside in the "templates" folder, the controller must include them.
@@ -481,7 +484,7 @@ For HTML creation, copy and paste bootstrap documentation.
 
 * **Include path**: all relative paths are relative to the execution point (index.php), path maintenance problem
 
-* **reutilisation des éléments communs**: we repeat html, head, body
+* **reusability**: we repeat html, head, body
  
 ✔️ Solutions:
 
@@ -557,7 +560,7 @@ ___
 >http://localhost:8000/signup?name=toto&email=tata
 
 `$_POST`
-store parameters of a request made in POST.
+store parameters of a POST request.
 
 ⚠️ Prerequist for obtain POST parameters:
 
@@ -588,7 +591,13 @@ With form diagram:
 
 * Create forms
 * Fill entities with inputs value
-* Display filled entity in the template
+* Display filled entities in the template
+
+**👨🏻‍💻 Manipulation**
+
+With form:
+
+* Manage errors
 ___
 
 <a id="xss"></a>
