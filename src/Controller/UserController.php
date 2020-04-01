@@ -7,11 +7,7 @@ use App\Form\UserForm;
 
 class UserController
 {
-    
-    public function __construct()
-    {
-    }
-            
+
     public function createUser()
     {
         $entity = new User();
@@ -21,12 +17,10 @@ class UserController
 
     public function updateUser()
     {
-        echo "updateUser";
     }
 
     public function suspendUser()
     {
-        echo "suspendUser";
     }
 
 }
